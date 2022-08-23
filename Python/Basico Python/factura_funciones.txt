@@ -1,0 +1,17 @@
+Se le solicita que elabore un programa que permita facturar n productos. Manejaremos como minimo 3 funciones.
+
+Entrada
+Proceso
+Salida
+
+Se integraran desde un menu, el equipo debe definir si lo trabajara con listas, vectores, archivos planos, diccionarios o archivos json.
+
+Funcion de entrada: Se define la estructura de almacenamiento y por teclado debe ingresar:
+-Codigo del producto
+-Nombre del Articulo
+-Precio unitario con iva
+-Porcentaje del iva
+
+Funcion proceso: Se debe crear otra funcion que teniendo en cuenta la estructura de almacenamiento de la funcion anterior permita digitar el codigo del producto y traer el articulo, el precio y el porcentaje del iva. Posteriormente el programa le permite digitar la cantidad. Calcular subtotal, valor del iva y el total. Almacenarlos en una estructura de almacenamiento.
+
+Funcion salida: Mostrar la factura completa, codigos, productos, precio unitario, porcentaje del iva, subtotal, valor del iva.

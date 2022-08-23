@@ -1,0 +1,12 @@
+Select 'Consulta 1';
+select bicicletas.nombreF_Bici as fabricantes from bicicletas union select motocicletas.nombreF_Moto from motocicletas order by fabricantes;
+Select 'Consulta 2';
+select * from bicicletas where año_const >= 2019 order by nombreF_Bici;
+Select 'Consulta 3';
+select nombreF_moto from motocicletas where proveedor_mot = 'Auteco';
+Select 'Consulta 4';
+select busqueda from intenciones where user = 'lucky' order by busqueda;
+Select 'Consulta 5';
+select clientes.username, clientes.nombres, clientes.apellidos from clientes inner join intenciones on clientes.username = intenciones.user where busqueda = 'Yeti';
+Select 'Consulta 6';
+select count(año_const) from bicicletas where año_const>=2019;
