@@ -370,7 +370,7 @@ print('Float: \n',[a for a in dir(float()) if "_" not in a])
 #%%     9)        MANEJO DE ARCHIVOS - FILES
 
 #Modo w - Escritura (borra el archivo si existe)
-#Borra todo el contenido y escribe sobre el documento.
+#script de escritura
 lineas = [
     "Hola mundo",
     "Hola mundo 2",
@@ -384,13 +384,6 @@ def escribirArchivo(fichero,lineas):
             archivo.write(linea)
 escribirArchivo("archivo.txt",lineas)
 
-with open('NuevoTexto.txt','w') as f:
-    f.write('Nuevo texto creado\n')
-    f.write('Segunda linea del nuevo texto')
-#Escribir con la funcion writelines
-with open('NuevoTexto2.text','w') as f:
-    lines=['Linea 1 escrita en el nuevo texto','\nLinea 2 escrita en el nuevo texto']
-    f.writelines(lines)
     
 #Modo a - Agregar (escribe al final del documento)
 with open('NuevoTexto.txt','a') as f:
