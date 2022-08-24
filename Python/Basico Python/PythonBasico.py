@@ -348,6 +348,7 @@ print(list(range(1,11)))
 
 
 #%%    8)      OBJETOS / MODULOS
+from ast import main
 from mimetypes import init
 import random
 import math
@@ -368,9 +369,21 @@ print('Float: \n',[a for a in dir(float()) if "_" not in a])
 
 #%%     9)        MANEJO DE ARCHIVOS - FILES
 
-#Modo w - Escritura 
+#Modo w - Escritura (borra el archivo si existe)
 #Borra todo el contenido y escribe sobre el documento.
-#Escribir con la funcion write
+lineas = [
+    "Hola mundo",
+    "Hola mundo 2",
+    "Hola mundo 3"
+]
+def escribirArchivo(fichero,lineas):
+    with open(fichero,"w") as archivo:
+        for linea in lineas:
+            if not linea.endswith("\n"):
+                linea += "\n"
+            archivo.write(linea)
+escribirArchivo("archivo.txt",lineas)
+
 with open('NuevoTexto.txt','w') as f:
     f.write('Nuevo texto creado\n')
     f.write('Segunda linea del nuevo texto')
@@ -379,16 +392,37 @@ with open('NuevoTexto2.text','w') as f:
     lines=['Linea 1 escrita en el nuevo texto','\nLinea 2 escrita en el nuevo texto']
     f.writelines(lines)
     
-#Modo a - Escritura
+#Modo a - Agregar (escribe al final del documento)
 with open('NuevoTexto.txt','a') as f:
     f.write('\nTercera linea creada sobre el mismo texto')
     
 #Modo r - Lectura
-#With == try-finally
-with open('texto_prueba.txt','r') as f:
-#print(f.read())
-    print(f.read(1))
-    print(f.read(2))
+#script de lectura
+def main():
+    usuarios = listarUsusarios()
+    for usuario in usuarios:
+        print(f'Usuario: {usuario}')
+
+def listarUsusarios():
+    with open('texto_prueba.txt','r') as f:
+        datos = f.readlines()
+        users = []
+        for linea in datos:
+            if linea.startswith('#'):
+                continue
+            if linea.startswith('_'):
+                continue
+            if linea.startswith('\n'):
+                continue
+            users.append(linea.split(':')[0])
+        return users
+
+
+if __name__ == "__main__":
+    main()
+
+
+
 #Readlines: Lee todas las lineas y las devuelve en una lista
 with open('NuevoTexto.txt','r') as f:
     print(f.readlines())
@@ -723,6 +757,22 @@ p = Producto()
 p.CategoriaProducto.nombreCategoria = 'Electronicos'
 p.CIFProveedor.nombreProveedor = 'Electronicos'
 
+
+#%%
+class Juguete:
+    def __init__(self, nombre, tipo):
+        self.nombre = nombre
+        self.tipo = tipo
+    
+    # str y repr son funciones que se ejecutan cuando se imprime un objeto
+    def __str__(self): #salidas informales
+        return f"{self.nombre} es un {self.tipo}"
+    def __repr__(self): #salidas tecnicas
+        return f"Juguete('{self.nombre}', '{self.tipo}')"
+
+j1 = Juguete('Pelota', 'bebe')
+print(str(j1)) #Pelota es un bebe
+print(repr(j1)) #Juguete('Pelota', 'bebe')
 
 
 
