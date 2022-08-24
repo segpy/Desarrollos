@@ -608,9 +608,17 @@ def greet(**names): #kwargs: convierte el parametro en un diccionario
         print("Hello", name)
 greet(Key1 = "Value1", Key2 = "Value2", Key3 = "Value3")
 
-
-
-
+#modificar el valor de una variable dentro de una funcion de manera global
+variable = 5
+def funcion1():
+    global variable
+    variable = 10
+    print(variable)
+def funcion2():
+    globals()['variable'] = 20
+    print(variable)
+funcion1() #10
+funcion2() #20
 
 
 
