@@ -389,6 +389,7 @@ escribirArchivo("archivo.txt",lineas)
 with open('NuevoTexto.txt','a') as f:
     f.write('\nTercera linea creada sobre el mismo texto')
     
+    
 #Modo r - Lectura
 #script de lectura
 def main():
