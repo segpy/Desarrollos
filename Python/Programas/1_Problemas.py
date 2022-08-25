@@ -499,7 +499,12 @@ x,y,z,n = (int(input()) for i in range (4))
 print([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a+b+c!=n])
 
 #%%
-
+#factorial
+def factorial(n):
+    if n==0:
+        return 1
+    else:
+        return n*factorial(n-1)
 #%%
 #Programa que imprime la serie de fibonacci
 def fibonacci(n):
