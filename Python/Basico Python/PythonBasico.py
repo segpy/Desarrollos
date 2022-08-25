@@ -389,7 +389,7 @@ escribirArchivo("archivo.txt",lineas)
 with open('NuevoTexto.txt','a') as f:
     f.write('\nTercera linea creada sobre el mismo texto')
     
-    
+
 #Modo r - Lectura
 #script de lectura
 def main():
@@ -768,6 +768,53 @@ j1 = Juguete('Pelota', 'bebe')
 print(str(j1)) #Pelota es un bebe
 print(repr(j1)) #Juguete('Pelota', 'bebe')
 
+
+
+
+
+
+"""----------------------------- MAP/FILTER/REDUCE -----------------------------"""
+#%%
+# Filter : se aplica el filtro cuando la condicion es verdadera (True)
+numero = [1,2,3,4,5,6,7,8,9,10]
+def esPar(numero): #Se ejeucta para cada elemento de la lista
+    return numero % 2 == 0
+#filter
+filtro = list(filter(esPar, numero))
+print(type(filtro)) #<class 'list'>
+print(f'Filtro: {filtro}') #Filtro: [2, 4, 6, 8, 10]
+# lambda
+filtro = list(filter(lambda numero: numero % 2 == 0, numero))
+print(f'Filtro lambda: {filtro}') #Filtro lambda: [2, 4, 6, 8, 10]
+
+#%%
+# Map : se aplica sobre cada elemento de la lista
+numero = [1,2,3,4,5,6,7,8,9,10]
+def doble(numero): #funcion anonima, se ejecuta sobre cada elemento de la lista
+    print('doble:', numero * 2)
+    return numero * 2
+#map
+doble = list(map(doble, numero))
+print(type(doble)) #<class 'list'>
+print(f'Map: {doble}') #Map: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+# lambda
+doble = list(map(lambda x : x * 2, numero))
+print(f'Map lambda: {doble}') #Map lambda: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+#%%
+# Reduce : itera sobre la lista y aplica una funcion a cada elemento
+from functools import reduce
+numero = [1,2,3,4,5,6,7,8,9,10]
+def suma(numero1, numero2): # se ejecuta como un for
+    print (f'{numero1} + {numero2} = {numero1 + numero2}')
+    return numero1 + numero2
+#reduce
+suma = reduce(suma, numero)
+print(type(suma)) #<class 'int'>
+print(f'Reduce: {suma}') #Reduce: 55
+# lambda
+suma = reduce(lambda numero1, numero2 : numero1 + numero2, numero)
+print(f'Reduce lambda: {suma}') #Reduce lambda: 55
 
 
 
