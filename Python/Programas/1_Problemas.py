@@ -540,3 +540,18 @@ def flat (lista):
                 lista_vacia.append(subitem)
     return lista_vacia
 print(flat(lista))
+
+#%%
+#programa para verificar login de usuario y contraseña usando recursividad
+def login(usuario,contrasena,intentos=3):
+    if intentos == 0:
+        return f'Excedio el numero de intentos'
+    elif usuario == 'admin' and contrasena == '1234':
+        return f'Bienvenido {usuario}'
+    else:
+        print('Usuario o contraseña incorrectos')
+        usuario = input('Ingrese usuario: ')
+        contrasena = input('Ingrese contraseña: ')
+        return login(usuario,contrasena,intentos-1)
+
+login(input('Ingrese usuario: '),input('Ingrese contraseña: '))
