@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class Obra {
+public class reto3_ArrayList {
     int dato;
     //Constructor
-    public Obra(int dato) {
+    public reto3_ArrayList(int dato) {
         this.dato = dato;
     }
     //Metodo numero 1
@@ -67,23 +67,23 @@ public class Obra {
         //Prueba metodo 1
         System.out.println("Prueba metodo 1");
         ArrayList<Integer> clase = new ArrayList<Integer>(Arrays.asList(1,2,5,5,5,1,2,5,5,5));
-        Obra obra = new Obra(1);
-        System.out.println(obra.clases(clase));
+        reto3_ArrayList reto3_ArrayList = new reto3_ArrayList(1);
+        System.out.println(reto3_ArrayList.clases(clase));
         //Prueba metodo 2
         System.out.println("Prueba metodo 2");
         clase = new ArrayList<Integer>(Arrays.asList(1,3,6,8));
         ArrayList<Integer> clase2 = new ArrayList<Integer>(Arrays.asList(1,2,5,5,5,1,2,5,5,5));
         Integer clase3 = 5;
-        System.out.println(obra.meFaltanDeLaClase(clase, clase2, clase3));
+        System.out.println(reto3_ArrayList.meFaltanDeLaClase(clase, clase2, clase3));
         //Prueba metodo 3
         System.out.println("Prueba metodo 3");
         clase = new ArrayList<Integer>(Arrays.asList(3,5,7,10,15,16));
         clase2 = new ArrayList<Integer>(Arrays.asList(4,10,5,8));
-        System.out.println(obra.noTengo(clase, clase2));
+        System.out.println(reto3_ArrayList.noTengo(clase, clase2));
         //Prueba metodo 4
         System.out.println("Prueba metodo 4");
         clase = new ArrayList<Integer>(Arrays.asList(49, 40, 26, 9, 14, 25, 18, 11, 39, 23, 19, 41, 38, 44, 42, 27, 28));
         clase2 = new ArrayList<Integer>(Arrays.asList(5, 13, 35, 48, 43, 0, 7, 30, 27, 2, 1, 40, 14, 28, 8, 10, 36, 49, 39, 23));
-        System.out.println(obra.puedoCambiar(clase, clase2));
+        System.out.println(reto3_ArrayList.puedoCambiar(clase, clase2));
     }
 }

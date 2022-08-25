@@ -1,6 +1,6 @@
 //importar la clase scanner
 import java.util.Scanner;
-public class Reto1
+public class Reto1_Condicionales
  {
     public String esfera_f(int t){
         String esfera =  "";
@@ -30,7 +30,7 @@ public class Reto1
         //Imprimir los 3 valores en una sola linea
         System.out.println(d_goku +" "+ d_esfera +" "+ t);
         //Crear objeto de la clase Reto1
-        Reto1 app = new Reto1();
+        Reto1_Condicionales app = new Reto1_Condicionales();
         //Imprimir el valor de la esfera
         System.out.println("La esfera es: " + app.esfera_f(t));
         
