@@ -787,6 +787,7 @@ print(f'Filtro: {filtro}') #Filtro: [2, 4, 6, 8, 10]
 filtro = list(filter(lambda numero: numero % 2 == 0, numero))
 print(f'Filtro lambda: {filtro}') #Filtro lambda: [2, 4, 6, 8, 10]
 
+
 #%%
 # Map : se aplica sobre cada elemento de la lista
 numero = [1,2,3,4,5,6,7,8,9,10]
@@ -800,6 +801,8 @@ print(f'Map: {doble}') #Map: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 # lambda
 doble = list(map(lambda x : x * 2, numero))
 print(f'Map lambda: {doble}') #Map lambda: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+
 
 #%%
 # Reduce : itera sobre la lista y aplica una funcion a cada elemento
