@@ -15,6 +15,6 @@ SELECT city, length(city) from station where length(city) = (SELECT MAX(length(c
 */
 SELECT id FROM company WHERE employees > 10000 ORDER BY id ASC;
 
-/*se tienen tres tablas tipo_doc, personal y documentos, hacer una solicitud que traiga el identificador de personal y nombre de la persona de todo el personal que tenga exactamente 3 documentos registrados
+/*se tienen tres tablas tipo_doc, personal y documentos, hacer una solicitud que traiga el identificador de personal y nombre de la persona de todo el personal que tenga exactamente 3 documentos registrados sin usar count.
 */
 SELECT personal.id, personal.nombre FROM personal INNER JOIN documentos ON personal.id = documentos.id_personal group by personal.id having count(documentos.id_personal) = 3;
