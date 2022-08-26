@@ -193,3 +193,20 @@ def invertir(palabra):
 print(invertir(palabra))
 
 
+#%%
+def misterio(a,b):
+    if(a<=0 and b<=0):
+        return 1
+    if(a%2==0):
+        return a+ misterio(b, b-1)
+    else:
+        return b + misterio(a+1,b)
+print(misterio(6,2))
+
+#(6,2) ->6
+#(2,1) ->2
+#(1,0) ->0
+#(2,0) ->2
+
+
+

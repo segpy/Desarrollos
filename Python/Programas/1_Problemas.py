@@ -440,7 +440,7 @@ def fibonacci(n):
         return 1
     else:
         return fibonacci(n-1)+fibonacci(n-2)
-print(fibonacci(10))
+print(fibonacci(1))
 
 #%%
 stringprueba = "Protocolo TLS(Transport Layer Security, seguridad)es solo una versión actualizada y más segura de SSL"
@@ -513,7 +513,8 @@ def fibonacci(n):
         print(a,' Iteraicon: ',i)
         print(b,' Iteraicon: ',i)
         a, b = b, a + b
-fibonacci(10)
+    return a
+print(fibonacci(10))
 #%%
 #Programa que grafica un seno con matplotlib
 import matplotlib.pyplot as plt
@@ -560,3 +561,24 @@ def login(usuario,contrasena,intentos=3):
         return login(usuario,contrasena,intentos-1)
 
 login(input('Ingrese usuario: '),input('Ingrese contraseña: '))
+
+#%%
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    cantidad = int(input().strip())
+
+    result = funcCalcularSerieFibonacci(cantidad)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+#%% fibonacci usando listas
+def fibonacci(n):
+    lista = [0,1]
+    for i in range(2,n):
+        lista.append(lista[i-1]+lista[i-2])
+    return lista
+print(fibonacci(10))
