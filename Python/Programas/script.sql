@@ -1,3 +1,9 @@
+--MySQL Functions:
+--String Functions: ASCII, CHAR, CONCAT, CONCAT_WS, ELT, EXPORT_SET, FIELD, FIND_IN_SET, INSERT, INSTR, LCASE, LEFT, LENGTH, LOCATE, LOWER, LPAD, LTRIM, MID, OCTET_LENGTH, POSITION, REPEAT, REPLACE, REVERSE, RIGHT, RPAD, RTRIM, SOUNDEX, SPACE, SUBSTRING, SUBSTRING_INDEX, UCASE, UPPER, VERSION,
+--Numeric Functions: ABS, CEIL, CEILING, EXP, FLOOR, LN, LOG, LOG2, LOG10, MOD, POWER, RADIANS, RAND, RANDOM, ROUND, SIGN, SQRT, TRUNCATE,
+--Date Functions: CURDATE, CURTIME, DATE, DATEDIFF, DAY, DAYNAME, DAYOFMONTH, DAYOFWEEK, DAYOFYEAR, HOUR, MINUTE, MONTH, MONTHNAME, NOW, QUARTER, SECOND, TIMESTAMP, TIMESTAMPADD, TIMESTAMPDIFF, WEEK, WEEKDAY, WEEKOFYEAR, YEAR, YEARWEEK,
+
+
 /*Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
 */
 SELECT DISTINCT city FROM station WHERE id % 2 = 0;
@@ -18,3 +24,20 @@ SELECT id FROM company WHERE employees > 10000 ORDER BY id ASC;
 /*se tienen tres tablas tipo_doc, personal y documentos, hacer una solicitud que traiga el identificador de personal y nombre de la persona de todo el personal que tenga exactamente 3 documentos registrados sin usar count.
 */
 SELECT personal.id, personal.nombre FROM personal INNER JOIN documentos ON personal.id = documentos.id_personal group by personal.id having count(documentos.id_personal) = 3;
+
+/*Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT city FROM station WHERE city LIKE 'a%' OR city LIKE 'e%' OR city LIKE 'i%' OR city LIKE 'o%' OR city LIKE 'u%';
+
+/*Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT city FROM station WHERE city LIKE '%a' OR city LIKE '%e' OR city LIKE '%i' OR city LIKE '%o' OR city LIKE '%u';
+
+/*Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters.
+*/
+select distinct city from station where (city like 'a%' or city like 'e%' or city like 'i%' or city like 'o%' or city like 'u%') and (city like '%a' or city like '%e' or city like '%i' or city like '%o' or city like '%u');
+--Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters using MySQL's functions (i.e., RIGHT, LEFT, LENGTH, SUBSTRING, etc.).
+SELECT DISTINCT city FROM station WHERE RIGHT(city, 1) IN ('a', 'e', 'i', 'o', 'u') AND LEFT(city, 1) IN ('a', 'e', 'i', 'o', 'u');
+
+--Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates using MySQL's functions (i.e., RIGHT, LEFT, LENGTH, SUBSTRING, etc.).
+SELECT DISTINCT city FROM station WHERE RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
