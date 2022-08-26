@@ -4,6 +4,7 @@ Multiple input.
 Imprimir el dia en mayuscula a partir de una fecha dada
 """
 import calendar
+from os import remove
 
 m,d,y = map(int,input().split())
 print(calendar.day_name[calendar.weekday(y, m, d)].upper())
@@ -123,5 +124,72 @@ print('Metodo 1:\n',*range(1,n+1),sep='')
 for i in range(1,n+1):
         print(i,end="")
 
+
+#%% Listas anidadas
+n = int(input('Numero de estudiantes: '))
+estudiantes = [[input('Nombre: '), float(input('Nota: '))] for i in range(n)]
+#print(estudiantes)
+#print(min(estudiantes, key=lambda x: x[1]))
+#print([i[1] for i in estudiantes])
+sinMin = [i for i in estudiantes if i[1] != min(estudiantes, key=lambda x: x[1])[1]]
+#print(sinMin)
+nuevoMin = min(sinMin, key=lambda x: x[1])[1]
+nombres = []
+for i in sinMin:
+    if i[1] == nuevoMin:
+        nombres.append(i[0].lower())
+print(*sorted(nombres),sep='\n')
+
+#%% Diccionarios
+n = int(input('Numero de estudiantes: '))
+estudiantes = [input().split(' ') for i in range(n)]
+esProm = input('Estudiante a promediar: ')
+notas = []
+est = []
+
+for sublista in estudiantes:
+    est.append(sublista[0])
+    notas.append(list(map(float,sublista[1::])))
+
+tupla = list (zip(est,notas)) #[('nombre',[nota1,nota2,nota3]),('nombre',[nota1,nota2,nota3])]
+#print(tupla)
+esDic = dict(tupla)
+#print(esDic)
+#promedio con 2 decimales
+print(f'{sum(esDic[esProm])/len(esDic[esProm]):.2f}')
+
+#%%
+a = 5.0
+b = 6.0
+c = a+b
+print(f'{c:.2f}')
+#%%
+n = int(input('Numero: '))
+for i in range(1,n+1):
+    if i%3 == 0 and i%5 == 0:
+        print('FizzBuzz')
+    elif i%3 == 0:
+        print('Fizz')
+    elif i%5 == 0:
+        print('Buzz')   
+    else:
+        print(i)
+
+#%%
+#Certificado Python Hackerrank
+#Ejercicio 1
+n = list(map(int,input().split()))
+def promedio(n):
+    return '{:.2f}'.format(sum(n)/len(n))
+print(promedio(n))
+
+#%% Ejercicio 2
+palabra = input()
+
+def invertir(palabra):
+    a = palabra.split()
+    nuevaPalabra = ' '.join(a[::-1])
+    return nuevaPalabra.swapcase()
+print(invertir(palabra))
 
 

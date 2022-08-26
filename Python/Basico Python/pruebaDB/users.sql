@@ -4,6 +4,9 @@ create table users (
     clave varchar(45),
     primary key (id)
 );
+insert into users values 
+		(1,'sebas','clave');
+
 
 insert into users values 
 		(1,'sebas','clave'),

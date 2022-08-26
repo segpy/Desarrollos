@@ -105,9 +105,9 @@ text1 = "Texto"
 
 #Slicing
 print(text1[1:3]) #ex
-print(text1[::])
-print(text1[::-1])
-print(text1[4:2:-1])
+print(text1[::]) #Texto
+print(text1[::-1]) #imprime el texto en reversa (otxeT)
+print(text1[4:2:-1]) #Primeras dos posiciones del texto en reversa (ot)
 list = ["apple", "banana", "cherry"]
 print(list) #['apple', 'banana', 'cherry']
 print(list[1]) #banana
@@ -182,6 +182,10 @@ print(lista1[0]) #a
 
 #Sliciing - #Es como un range(), el ultimo valor es n-1.
 print(lista1[1:4]) #['b', 'c', 'd']
+print(lista1[::-1]) #['e', 'd', 'c', 'b', 'a']
+print(lista1[::2]) #['a', 'c', 'e']
+print(lista1[1:]) #['b', 'c', 'd', 'e']
+print(lista1[4:2:-1]) #['e', 'd']
 
 #Agregar
 #Metodo append
@@ -239,13 +243,27 @@ print('Sort',lista1)
 
 #Creacion
 person1= {"key1":"value1","key2":"value2"}
-person2 = {"key1":"value1","key2":"value2","key3":"value3"}
 #Crear diccionario anidado
 person3 = {"key1":{"key11":"value11","key12":"value12"},"key2":"value2"}
 print('Diccionario anidado: ',person3)
 #Crear diccionario con dict()
 person4 = dict(key1="value1",key2="value2")
 print('Diccionario con dict(): ',person4)
+
+
+#Diccionario a partir de una lista de tuplas
+dic2 = dict([("key1",[1,2,3]),("key2","value2")])
+print('Diccionario a partir de una lista de tuplas: ',dic2)
+#Diccionario a partir de una lista de listas
+dic3 = dict([["key1",[1,2,3]],["key2","value2"]])
+print('Diccionario a partir de una lista de listas: ',dic3)
+#Diccionario a partir de una lista de listas anidadas
+dic4 = dict([["key1",[["key11",1],["key12",2]]],["key2","value2"]])
+print('Diccionario a partir de una lista de listas anidadas: ',dic4)
+#Diccionario a partir de tuplas de tuplas
+dic5 = dict((("key1",1),("key2",2)))
+print('Diccionario a partir de tuplas de tuplas: ',dic5)
+
 
 #Acceder a diccionarios
 print(person1["key1"]) #value1
@@ -272,6 +290,7 @@ print('Copia',person3)
 print('Original',person1)
 
 #Iterando
+person2 = {"key1":"value1","key2":"value2","key3":"value3"}
 print([person2[key] for key in person2]) #['value1', 'value2', 'value3']
 #Built-in len
 print(len(person2)) #Devuelve la cantidad de elementos en el diccionario
