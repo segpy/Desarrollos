@@ -156,7 +156,7 @@ GROUP BY: agrupa los valores unicos de un campo
 
 
 ORDER BY: ordena los valores de un campo
---*ORDER BY campo;
+--*ORDER BY campo, campo asc;
     ASC: ascendente
     --*ORDER BY campo ASC;
     DESC: descendente

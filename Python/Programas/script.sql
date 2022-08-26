@@ -44,3 +44,25 @@ SELECT DISTINCT city FROM station WHERE RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o
 
 --Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates. using MySQL string functions
 SELECT DISTINCT city FROM station WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') OR RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+--Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates. using MySQL string functions
+SELECT DISTINCT city FROM station WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') AND RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+/*Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID. Use string functions.
+*/
+SELECT nombre FROM students WHERE marks > 75 ORDER BY right(nombre, 3) ASC, id ASC;
+SELECT nombre FROM students WHERE marks > 75 ORDER BY SUBSTRING(nombre, -3), id ASC;
+
+
+/*Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+*/
+SELECT SUM(population) FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE continent = 'Asia';
+
+/*Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+*/
+SELECT city.Name FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE continent = 'Africa';
+select city.name from city where countrycode in (select country.code from country where continent = 'Africa');
