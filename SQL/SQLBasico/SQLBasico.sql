@@ -16,7 +16,7 @@ AS: asigna un nombre a un campo
 --*SELECT campo AS nombre ...;
 --*SELECT campo1 AS nombre1, campo2 AS nombre2 ...;
     CONCAT
---*SELECT CONCAT(campo1,,' ',campo2) AS nombre ...;
+    --*SELECT CONCAT(campo1,,' ',campo2) AS nombre ...;
 --*SELECT count(*) AS nombre ...;
 --*SELECT ... from tabla as nombre ...;
 
@@ -24,8 +24,8 @@ COUNT: cuenta los valores, salida entera                    <-------------->    
 --*SELECT count(campo) ...;
 --*SELECT count(*) ...;
     DISTINCT
---*SELECT count(distinct campo) ...;
---*SELECT count(distinct *) ...;
+    --*SELECT count(distinct campo) ...;
+    --*SELECT count(distinct *) ...;
 
 
 SUM: suma los valores de un campo, salida entera            <-------------->        funcion agregada: NECESITA GROUP BY para separar los valores
@@ -49,7 +49,7 @@ LIMIT: muestra las primeras(#) filas de una tabla --MySQL, PostgreSQL
 --*SELECT * from ... LIMIT #;
 --*SELECT * from ... LIMIT #,#;
     OFFSET: muestra las filas que estan despues de la fila #
---*SELECT * from ... LIMIT # OFFSET #;
+    --*SELECT * from ... LIMIT # OFFSET #;
 
 
 CASE: se usa para hacer una condicion
