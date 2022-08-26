@@ -41,3 +41,6 @@ SELECT DISTINCT city FROM station WHERE RIGHT(city, 1) IN ('a', 'e', 'i', 'o', '
 
 --Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates using MySQL's functions (i.e., RIGHT, LEFT, LENGTH, SUBSTRING, etc.).
 SELECT DISTINCT city FROM station WHERE RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+--Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates. using MySQL string functions
+SELECT DISTINCT city FROM station WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') OR RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
